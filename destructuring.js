@@ -26,7 +26,7 @@ const [first , second] = boxify(3,4);//function theke jeheeto ekta array return 
 console.log(boxify( 3, 4));
 
 
-// array destructuring system:3-------------------
+// array destructuring system: 4-------------------
 const student1 = {
     name : "sakib khan",
     ageee:80,
@@ -37,7 +37,27 @@ const student1 = {
 const [firstMovie1, secondMovie1] =student1.moives;
 
 
-/* ---------------------------object destructuring-------------------- */
+
+// array destructuring system: 5 -------------------
+const employee0 = {
+    name:"saddam",
+    age:24,
+    location:"sadgaw",
+
+    sfecification: {
+        height:66,
+        weight:67,
+        drink:"water",
+        skills:["dorji" , "rajmestry" , "current mestry"]
+    }
+}
+
+const [ dorji0 , rajmestry0  ] = employee0.sfecification.skills;
+console.log(dorji0 , rajmestry0)
+
+
+
+/* ----------------------------object destructuring------------------------- */
 
 // object destructuring system:1-------------------
 const student = {
@@ -57,7 +77,9 @@ const person = {name:'sahillu', age:"22", arrayOfObj:[2,3,4] , nestedOf:{roll:22
 
 /* evabe caile kuno puro obj ta kuno variable (person) e declare na kore sei jaigai  direct destructuring kora jai.ortat obj er prottekta property sei (person)objName er jaigai curly bracket er vitore diye lika jai.jmn:
 */
+
 // object destructuring system:2 -------------------
+// direct objName er jaigai destructuring
 const {name , age , arrayOfObj , nestedOf}= 
 {name:'sahillu', age:"22", arrayOfObj:[2,3,4] , nestedOf:{roll:22,class:5}};
 
@@ -89,9 +111,27 @@ const employee = {
     sfecification: {
         height:66,
         weight:67,
-        drink:"water"
+        drink:"water",
+        skills:["dorji" , "rajmestry" , "current mestry"]
+    },
+
+
+    family:{
+        firstChildAge:22,
+        wifeAge : 34,
+
     }
 }
 
-const {height , weight} = employee.sfecification;
+
+// property destructuring
+const {height , weight} = employee?.sfecification; // (?) eta dewa hocce optional chaining jate error na dei. oi obj e sei property thake output dibeee na thakle error  na diyee undifined dibe.
 console.log(height , weight)//ouput: 66 67
+
+// obj property's array destructuring
+const [ dorji , rajmestry  ] = employee?.sfecification?.skills;
+console.log(dorji , rajmestry);// output : dorji rajmestry
+
+// obj of obj (nested obj) destructuring
+const {wifeAge , firstChildAge} = employee?.family;
+console.log(wifeAge , firstChildAge)//output: 34 22
